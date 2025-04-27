@@ -60,4 +60,4 @@ spec:
       protocol: UDP
       name: dns-udp
   externalIPs:
-    - node1.ip.address
+    - raspberrypi-lev.ip.address
