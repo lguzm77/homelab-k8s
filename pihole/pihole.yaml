@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pihole
+  namesapce: pihole
   labels:
     app: pihole
 spec:
@@ -16,6 +17,7 @@ spec:
         app: pihole
         name: pihole
     spec:
+      # TODO: move config variables to ConfigMaps and Secrets Objects
       containers:
         - name: pihole
           image: pihole/pihole:latest
@@ -60,4 +62,4 @@ spec:
       protocol: UDP
       name: dns-udp
   externalIPs:
-    - 192.168.1.2
+    - 192.168.1.2 # TODO: Implement Load Balancing
