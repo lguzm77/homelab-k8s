@@ -22,13 +22,9 @@ spec:
         - name: pihole
           image: pihole/pihole:latest
           imagePullPolicy: Always
-          env:
-            - name: TZ
-              value: "America/New_York"
-            - name: FTLCONF_webserver_api_password
-              value: "secret"
-            - name: FTLCONF_dns_listeningMode
-              value: "all"
+          envFrom:
+          - configMapRef:
+              name: pihole-configmap
           volumeMounts:
             - name: pihole-local-etc-volume
               mountPath: "/etc/pihole"
