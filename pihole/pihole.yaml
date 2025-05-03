@@ -17,16 +17,15 @@ spec:
         app: pihole
         name: pihole
     spec:
-      # TODO: move config variables to ConfigMaps and Secrets Objects
       containers:
         - name: pihole
           image: pihole/pihole:latest
           imagePullPolicy: Always
           envFrom:
-          - configMapRef:
-              name: pihole-configmap
-          - secretRef:
-              name: pihole-secret
+            - configMapRef:
+                name: pihole-configmap
+            - secretRef:
+                name: pihole-secret
           volumeMounts:
             - name: pihole-local-etc-volume
               mountPath: "/etc/pihole"
@@ -39,26 +38,3 @@ spec:
         - name: pihole-local-dnsmasq-volume
           persistentVolumeClaim:
             claimName: pihole-local-dnsmasq-claim
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: pihole
-  namespace: pihole
-spec:
-  selector:
-    app: pihole
-  ports:
-    - port: 8000
-      targetPort: 80
-      name: pihole-admin
-    - port: 53
-      targetPort: 53
-      protocol: TCP
-      name: dns-tcp
-    - port: 53
-      targetPort: 53
-      protocol: UDP
-      name: dns-udp
-  externalIPs:
-    - 192.168.1.2 # TODO: Implement Load Balancing
