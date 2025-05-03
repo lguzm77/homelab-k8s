@@ -8,6 +8,8 @@ kubectl apply -f headless-service.yaml
 
 kubectl apply -f web-service.yaml
 
+kubectl apply -f dns-service.yaml
+
 # Deploy pods
 
 kubectl apply -f pihole.yaml 
