@@ -6,13 +6,12 @@ TODO: architecture diagram
 
 # Components
 
-Everything will be deployed in a pihole namesapce
+Everything will be deployed in a pihole namespace.
 
-- Config Map for configuration variables. -- DONE
-- Secrets for sensitive secrets. -- DONE
-- PersistentVolume and PersistentVolumeClaim for dnsmasq and etc data -- DONE
-- StatefulSet to deploy read-write Pihole replicas -- DONE
-- StatefulSet to deploy read-only Pihole replicas (needed to ensure High Availability).
-- A Service to expose pihole within the cluster -- DONE
-- A LoadBalancer Service to enable DNS resolution -- IN PROGRESS, will need to install MetalLB
+- A ConfigMap that reads from a .env object for configuration variables.
+- A Secret to hold the UI password. This is created by `deployment.sh` to avoid exposing credentials in this repository.
+- A Headless Service to be able to contact the primary pihole pod.
+- A Service to expose the web UI (port 80) to the cluster.
+- A Service to forward DNS queries (port 53/tcp,udp) to each pihole pod.
+- A StatefulSet containing definitions for pihole and metrics exporter and PersistenVolume. (TO BE DONE)
 - An Ingress to expose the Pihole UI over HTTPS
