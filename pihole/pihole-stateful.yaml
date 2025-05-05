@@ -34,13 +34,19 @@ spec:
               containerPort: 53
               protocol: TCP
           livenessProbe:
-            httpGet:
-              port: svc-80-tcp-web
+            type: command
+            command:
+              - /bin/sh
+              - -c
+              - "curl --silent http://localhost/api/info/login | jq 'if (.dns | not) then halt_error(1) end'"
             initialDelaySeconds: 10
             periodSeconds: 5
           readinessProbe:
-            httpGet:
-              port: svc-80-tcp-web
+            type: command
+            command:
+              - /bin/sh
+              - -c
+              - "curl --silent http://localhost/api/info/login | jq 'if (.dns | not) then halt_error(1) end'"
             initialDelaySeconds: 10
             periodSeconds: 10
             failureThreshold: 10
