@@ -23,14 +23,14 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: pihole-password
-                  key: WEBPASSWORD
+                  key: FTLCONF_webserver_api_passsword
             - name: "SECONDARY_HOST_1_PASSWORD"
               valueFrom:
                 secretKeyRef:
                   name: pihole-password
-                  key: WEBPASSWORD
+                  key: FTLCONF_webserver_api_passsword
             - name: "SECONDARY_HOST_2_PASSWORD"
               valueFrom:
                 secretKeyRef:
                   name: pihole-password
-                  key: WEBPASSWORD
+                  key: FTLCONF_webserver_api_passsword
