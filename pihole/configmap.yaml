@@ -4,5 +4,6 @@ metadata:
   name: pihole-configmap
   namespace: pihole
 data:
+  # TODO: migrate all environment variables to here
   TZ: "America/New_York"
   FTLCONF_dns_listeningMode: all

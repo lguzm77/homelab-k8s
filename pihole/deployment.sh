@@ -12,6 +12,7 @@ kubectl apply -f dns-service.yaml
 # Deploy pods
 
 kubectl apply -f pihole-stateful.yaml
+kubectl rollout restart -f pihole-stateful.yaml
 
 # Deploy certificate 
 
