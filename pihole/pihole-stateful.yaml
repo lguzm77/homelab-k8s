@@ -34,7 +34,6 @@ spec:
               containerPort: 53
               protocol: TCP
           livenessProbe:
-            type: command
             command:
               - /bin/sh
               - -c
@@ -42,7 +41,6 @@ spec:
             initialDelaySeconds: 10
             periodSeconds: 5
           readinessProbe:
-            type: command
             command:
               - /bin/sh
               - -c

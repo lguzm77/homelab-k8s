@@ -10,8 +10,6 @@ kubectl apply -f web-service.yaml
 
 kubectl apply -f dns-service.yaml
 
-kubectl apply -f traefik-ingress.yaml
-
 # Deploy pods
 
 kubectl apply -f pihole-stateful.yaml
