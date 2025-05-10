@@ -16,3 +16,6 @@ kubectl apply -f traefik-ingress.yaml
 
 kubectl apply -f pihole-stateful.yaml
 
+# Deploy certificate 
+
+kubectl apply -f pihole-tls-certificate.yaml
