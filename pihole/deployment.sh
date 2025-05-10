@@ -2,7 +2,6 @@
 
 # Create secrets from .env file
 
-kubectl create secret generic pihole-password --from-env-file=.env --namespace=pihole
 
 kubectl apply -f headless-service.yaml
 
