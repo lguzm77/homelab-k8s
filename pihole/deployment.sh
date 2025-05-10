@@ -21,3 +21,7 @@ kubectl apply -f pihole-tls-certificate.yaml
 # Deploy ingress rules
 
 kubectl apply -f ingress.yaml 
+
+# Orbital sync 
+
+kubectl apply -f orbital-sync-configmap.yaml
