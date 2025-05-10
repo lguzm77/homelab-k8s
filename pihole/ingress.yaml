@@ -1,4 +1,4 @@
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: redirecthttps
@@ -8,7 +8,7 @@ spec:
     scheme: https
     permanent: true
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha
 kind: Middleware
 metadata:
   name: redirect-admin-page
@@ -18,7 +18,7 @@ spec:
     regex: ^/$
     replacement: /admin
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: pihole-server-https
@@ -39,7 +39,7 @@ spec:
   tls:
     secretName: pihole-tls
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: pihole-server-http
