@@ -7,6 +7,16 @@ type: Opaque
 data:
   FTLCONF_webserver_api_password: <PASSWORD>
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pihole-configmap
+  namespace: pihole
+data:
+  # TODO: migrate all environment variables to here
+  TZ: "America/New_York"
+  FTLCONF_dns_listeningMode: all
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
