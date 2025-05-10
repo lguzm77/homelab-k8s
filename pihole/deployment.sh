@@ -17,3 +17,7 @@ kubectl apply -f pihole-stateful.yaml
 # Deploy certificate 
 
 kubectl apply -f pihole-tls-certificate.yaml
+
+# Deploy ingress rules
+
+kubectl apply -f ingress.yaml 
