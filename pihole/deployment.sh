@@ -25,3 +25,4 @@ kubectl apply -f ingress.yaml
 # Orbital sync 
 
 kubectl apply -f orbital-sync-configmap.yaml
+kubectl apply -f orbital-sync.yaml
