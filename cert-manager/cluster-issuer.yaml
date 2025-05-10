@@ -1,15 +1,26 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cloudflare-api-token
+  namespace: cert-manager
+type: Opaque
+stringData:
+  api-token: <Cloudflare API token>
+----
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: cloudflare-letsencrypt-staging
+  name: cloudflare-letsencrypt-issuer
 spec:
   acme:
-    email: levcguzman77@gmail.com
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    email: <Your Email>
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: cluster-issuer-account-key
     solvers:
-      - dns01:
-          cloudflare:
-            email: levcguzman77@gmail.com
-            apiTokenSecretRef:
-              name: cloudflare-api-token
-              key: api-token
+    - dns01:
+        cloudflare:
+          email: <Your Email>
+          apiTokenSecretRef:
+            name: cloudflare-api-token
+            key: api-token
