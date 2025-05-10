@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: cloudflare-letsencrypt-issuer
     kind: ClusterIssuer
-  commonName: "pihole.techolev.work"
+  commonName: "technolev.work"
   dnsNames:
     - "pihole.techolev.work"
