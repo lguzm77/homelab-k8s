@@ -4,7 +4,7 @@ metadata:
   name: pihole-password
   namespace: pihole
 type: Opaque
-data:
+stringData:
   FTLCONF_webserver_api_password: <PASSWORD>
 ---
 apiVersion: v1
