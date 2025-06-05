@@ -1,3 +1,16 @@
 #!/bin/bash
 
-kubectl apply -f cluster-issuer.yaml
+
+deploy () {
+  # TODO: fill out cluster-issuer.yaml with variables
+
+  kubectl apply -f cluster-issuer.yaml
+}
+
+
+
+case "$1" in
+*)
+  deploy
+  ;;
+esac 
