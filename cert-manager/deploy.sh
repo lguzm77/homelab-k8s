@@ -14,9 +14,17 @@ deploy () {
   kubectl apply -f cluster-issuer.yaml
 }
 
+install () {
+  echo "Installing cert manager"
+  kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.17.2/cert-manager.yaml
+}
+
 
 
 case "$1" in
+  install)
+    install
+    ;;
 *)
   deploy
   ;;
