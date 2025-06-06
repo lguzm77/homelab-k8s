@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Create secrets from .env file
+deploy () {
 
+kubectl apply -f namespace.yaml
 
 kubectl apply -f headless-service.yaml
 
@@ -26,3 +27,10 @@ kubectl apply -f ingress.yaml
 
 kubectl apply -f orbital-sync-configmap.yaml
 kubectl apply -f orbital-sync.yaml
+
+}
+
+case "$1" in
+  *) 
+    deploy;;
+esac 
