@@ -30,7 +30,20 @@ kubectl apply -f orbital-sync.yaml
 
 }
 
+render () {
+  local PIHOLE_PASSWORD
+  echo "Rendering template files"
+
+  read -r -p "Set the pihole web UI password:" PIHOLE_PASSWORD
+
+  sed "s/{ { PIHOLE_PASSWORD } }/$PIHOLE_PASSWORD/g" pihole-stateful-template.yaml > pihole-stateful.yaml
+ }
+
+
 case "$1" in
+  render)
+  render ;;
+
   *) 
     deploy;;
 esac 
