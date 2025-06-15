@@ -2,7 +2,7 @@
 
 
 deploy () {
-  prinf "Deploying cert-manager"
+   echo "Deploying cert-manager"
    kubectl apply -f cluster-issuer.yaml
 }
 
